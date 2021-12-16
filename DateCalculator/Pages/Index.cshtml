@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <form method="post">
+        <div>
+            <label asp-for="StartDate">
+            </label>
+            <input asp-for="StartDate" />
+            <span asp-validation-for="StartDate" class="text-danger"></span>
+        </div>
+        <div>
+         <label asp-for="DurationInDays">
+          </label>
+            @Html.TextBoxFor(m => m.DurationInDays, new { @Value = "Enter Number Of Days", @class = "red" })
+        </div>
+        @if (Model.DataSubmitted)
+        {
+    <div>
+        Event Completion Date : <p>@Model.CompletionDate</p>
+    </div>}
+
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+
+<br />
+
+
+
